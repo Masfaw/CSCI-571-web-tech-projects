@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+    Matheos Asfaw
+    CSCI 571
+    Home Work 4
+    Fab 9th 2017
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 4</title>
+    <style>
+        body{
+            text-align: center;
+
+        }
+    </style>
+    <script>
+        function generateHTML(xmlDoc) {
+
+            ELEMENT_NODE = 1;    // MS parser doesn't define Node.ELEMENT_NODE
+            root = xmlDoc.DocumentElement;
+
+            //Start the HTML text
+            html_text = "<html><head><title>XML Parse Result</title></head><body>";
+            html_text += "<table border='2'>";
+
+            //Get the headers
+            headers = xmlDoc.getElementsByTagName("Header");
+            headerNodesList = headers.item(0).getElementsByTagName("Data");
+
+
+            //Get the Rows
+            allRows = xmlDoc.getElementsByTagName("Row");
+            headers= xmlDoc.getElementsByTagName("Data");
+
+
+//            console.log(headers[0].firstChild.nodeValue);//Airline
+//            console.log(headers[1].firstChild.nodeValue);//IATA
+//            console.log(headers[2].firstChild.nodeValue);//Hubs
+//            console.log(headers[3].firstChild.nodeValue);//Notes
+//            console.log(headers[4].firstChild.nodeValue);//Homepage
+//            console.log(headers[5].firstChild.nodeValue);//Plane
+
+
+
+            html_text += "<tbody>";
+            html_text += "<tr>";
+            x = 300;
+            y = 0;
+            // output the headers
+
+            for (i = 0; i < headerNodesList.length; i++) {
+                if (headerNodesList.item(i).nodeType == ELEMENT_NODE) {
+                    html_text += "<th>"
+                    if (headerNodesList.item(i).childNodes.length > 0 ){
+                        header = headerNodesList.item(i).childNodes.item(0).nodeValue;
+                        html_text += header
+                    }
+                    html_text +="</th>";
+
+
+
+                }
+            }
+            html_text += "</tr>";
+
+            // output out the rows
+
+            for (var i = 0; i < allRows.length; i++) {
+                var linkcounter= 0;
+
+                var row = allRows.item(i).childNodes;
+                html_text += "<tr>";
+                for (var j = 0; j < row.length; j++) {
+                    if (row.item(j).nodeType == ELEMENT_NODE) {
+                        //Finds the Hubs
+                        if (row.item(j).nodeName == "Hubs") { // adds the hubs
+                            var hubs = row.item(j).childNodes;
+                            html_text += "<td>";
+                            if (row.item(j).childNodes.length > 0){
+                                html_text += "<ul>";          // start list
+                                for (var k = 0; k < hubs.length; k++) {
+                                    if (hubs.item(k).nodeType == ELEMENT_NODE) {
+                                        html_text += "<li>";
+                                        if (hubs.item(k).childNodes.length > 0){
+                                            if (k == 1) {
+                                                html_text += "<b>";
+                                                html_text += hubs.item(k).firstChild.nodeValue;
+                                                html_text += "</b>";
+                                            } else {
+                                                html_text += hubs.item(k).firstChild.nodeValue;
+                                            }
+
+                                        }
+
+                                        html_text += "</li>";
+                                    }
+
+                                }// end for loop
+                                html_text += "</ul>";
+                            }
+
+                            html_text += "</td>";
+// end list
+                        }
+                        else if (row.item(j).nodeName == "Plane") {      // adds the plane image
+                            html_text += "<td>";
+                            if (row.item(j).childNodes.length > 0 ){
+                                html_text += "<img src='" + row.item(j).firstChild.nodeValue + "' width='" + x + "' >";
+                            }
+                            html_text += "</td>";
+
+                        }
+                        else if (row.item(j).nodeName == "HomePage") { // adds the link
+                            html_text += "<td>";
+                            if (row.item(j).childNodes.length > 0 ){
+                                var lc ="link"+linkcounter;
+                                var link= row.item(j).firstChild.nodeValue;
+
+                                html_text += "<a href="+row.item(j).firstChild.nodeValue+ "> "+row.item(j).firstChild.nodeValue+"</a>";
+
+                                //document.getElementById(lc).setAttribute("href",link);
+                                linkcounter++;
+                            }
+                            html_text += "</td>";
+                        }else {
+                           var count = row.item(j).childNodes.length;
+                           if (count > 0 ){
+                               html_text+= "<td>";
+
+                            html_text +=row.item(j).firstChild.nodeValue;
+                            html_text+= "</td>";
+                           }else{
+                               html_text+= "<td>";
+                               html_text+= "</td>";
+                           }
+                        }
+
+                    }
+                }// end for loop j
+                html_text += "</tr>";
+            } // end for loop i
+            html_text += "</tbody>";
+            html_text += "</table>";
+            html_text += "</body></html>";
+        }
+        function viewXML(what){
+            var URL = what.URL.value.trim();
+            console.log(URL);
+
+
+
+            function loadXML(url){
+                if (window.XMLHttpRequest){         // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+                }
+                else {    // code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.open("GET",url,false);
+                xmlhttp.send(null);
+                xmlDoc=xmlhttp.responseXML;
+                //check if xml is there or not
+                if (xmlhttp.status == 404){
+                    alert("Error: File not found!");
+                }
+                if (xmlDoc== null){
+                    alert("Error: Invalid xml file");
+                }
+                 return xmlDoc;
+            }
+
+            if (URL== null || URL == ""){
+                alert("Error: No URL entered");
+            }else{
+                xmlDoc = loadXML(URL);
+            }
+
+
+
+            if  (xmlDoc.getElementsByTagName("Row").length >0 ){
+                if (window.ActiveXObject){
+                    //if IE, simply execute script (due to async prop).
+                    if (xmlDoc.parseError.errorCode != 0){
+                        var myErr = xmlDoc.parseError;
+                        generateError(xmlDoc);
+                        hWin = window.open("", "Error", "height=800,width=800");
+                        hWin.document.write(html_text);
+                    }
+                    else {
+                        generateHTML(xmlDoc);
+                        hWin = window.open("", "Assignment4", "height=800,width=800");
+                        hWin.document.write(html_text);
+                    }
+
+                }
+                else{  //else if FF, execute script once XML object has loaded
+                    xmlDoc.onload=generateHTML(xmlDoc);
+                    hWin = window.open("", "Assignment4", "height=800,width=1200");
+                    hWin.document.write(html_text);
+                }
+            }
+            else {
+                alert("Error: No airline companies");
+            }
+
+            hWin.document.close();
+            URL = "";
+            xmlDoc = null;
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <h2 style="margin-top: 100px">Enter URL for Airlines list XML File</h2>
+    <form name="form1" method="get" id="form1" onsubmit=" return false">
+        <input type="text" name="URL" maxlength="255" ><br>
+        <input style="margin-top: 20px" type="submit" name="submit" value="Submit Query" onclick="viewXML(this.form)">
+    </form>
+
+
+<noscript>
+</body>
+</html>

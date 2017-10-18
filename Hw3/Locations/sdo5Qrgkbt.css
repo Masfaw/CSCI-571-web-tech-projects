@@ -1,0 +1,341 @@
+/*
+Matheos Asfaw
+CSCI 571
+Home Work 3
+Jan 24th 2017
+*/
+
+
+body{
+    margin: 0px;
+
+}
+
+
+div.blackBackground {
+    background-color: #191919;
+}
+
+
+/***************************** section 1 CSS ******************************/
+#sec1 {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 320px;
+    width: 1170px;
+
+    margin: 0px;
+}
+
+#sec11 {
+    position: absolute;
+    top: 45px;
+    width: 430px;
+    height: 260px;
+    left: 372px;
+    color: white;
+    font-family: Helvetica, Arial;
+}
+
+#locFav {
+    position: relative;
+    margin-top: 60px;
+    font-weight: normal;
+    letter-spacing: 5px;
+    text-align: center;
+    font-size: 15px;
+
+}
+
+#no {
+    position: absolute;
+    border-bottom: 5px solid white;
+    left: 105px;
+    font-size: 60px;
+    margin-top: 8px;
+    width: 100px;
+
+}
+
+#no13 {
+    position: absolute;
+    top: 98px;
+    left: 200px;
+    width: 100px;
+    font-size: 120px;
+    float: right;
+
+}
+
+
+/***************************** section 2 CSS ******************************/
+
+#sec2{
+    position: relative;
+    height: 400px;
+    margin: 0px;
+    width: 1170px;
+    left:0px;
+    top:0px;
+
+
+}
+
+#sayHello{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 30px;
+
+    cursor: hand;
+
+}
+#interested{
+    color: #A28B44;
+    position:absolute;
+    top:110px;
+    left: 390px;
+    z-index: 2;
+    font-family: Helvetica,Arial;
+    letter-spacing: 4px;
+    font-size: 15px;
+}
+#hearFrom{
+    position: absolute;
+    text-align: center;
+    top: 150px;
+    left: 280px;
+    width:614px ;
+    font-family: Helvetica,Arial;
+    font-size:18px;
+}
+#getInTouch{
+    border: 3px solid #191919;
+    font-family: Helvetica;
+    position : absolute;
+    top:260px;
+    left: 443px;
+    padding-left: 70px;
+    padding-right: 70px;
+    line-height: 55px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 5px;
+
+}
+
+
+a.sec2:link{
+    color: #191919;
+    text-decoration: none;
+}
+
+a.sec2:visited{
+    color:#191919;
+    text-decoration: none;
+}
+
+a.sec2:hover ,a.sec2:active{
+    color: white;
+    background-color: #191919;
+    text-decoration: none;
+}
+
+
+/***************************** section 3 CSS ******************************/
+#sec3{
+    position: relative;
+    width: 1170px;
+    margin: 0px;
+    height: 536px;
+    left: 0px;
+}
+#sec31{
+    position: absolute;
+    width:440px;
+    height: 180px;
+    border-bottom: 1px solid #3B3B3B ;
+    border-right: 1px solid #3B3B3B;
+    margin-top: 20px ;
+    line-height: 180px;
+    text-align: center;
+    color: white;
+    letter-spacing: 4px;
+    font-family: Helvetica;
+    font-size: 13px;
+}
+
+a.sec32:focus{
+    border: 1px dashed white;
+    color: white;
+}
+a.sec31:link{
+    color: white;
+    text-decoration: none;
+
+}
+a.sec31:visited{
+    color: white;
+    text-decoration: none;
+}
+a.sec31:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+a.sec31:active{
+    border: 1px dashed white;
+    color: white;
+    text-decoration: underline;
+}
+
+
+#sec32{
+    position: absolute;
+
+    width: 730px;
+    margin-top: 20px;
+    border-bottom: 1px solid #3B3B3B;
+    left: 440px;
+    height: 180px;
+    margin-left: 0px ;
+}
+#signUp{
+    position: absolute;
+    color: #A28B44;
+    letter-spacing: 4px;
+    top: 30px;
+    left: 72px;
+    font-family: Helvetica;
+    font-size: 13px;
+
+}
+
+
+#eform{
+    position: absolute;
+    width: 316px;
+    height: 45px;
+    left: 72px;
+    top: 80px;
+    color:grey;
+    font-size: 20px;
+    font-family: Helvetica;
+
+
+}
+input.eFrom:link{
+    border-color: white;
+}
+input.eFrom:visited{
+    border-color: white;
+}
+input.eFrom:hover ,input.eFrom:active{
+   border-color: grey;
+
+}
+#signUpBtn{
+    position: absolute;
+    top: 75px;
+    left: 400px;
+    border: 3px solid white;
+    letter-spacing: 4px;
+    font-family: Helvetica;
+    width: 224px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+
+
+}
+
+a.sec32:link{
+    color: white;
+    background-color: #191919;
+    text-decoration: none;
+
+}
+a.sec32:visited{
+    color: white;
+    background-color: #191919;
+    text-decoration: none;
+}
+a.sec32:hover, a.sec32:active{
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+#contactTable{
+    position: absolute;
+    top: 230px;
+    left: 50px;
+    font-family: Helvetica;
+    width: 1089px;
+    font-family: Helvetica ;
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+
+}
+#contacUs{
+    position: absolute;
+    width:172px;
+
+    padding: 7px;
+    text-align: center;
+    letter-spacing: 4px;
+    border: 3px solid white;
+    font-size: 11px;
+
+}
+a.sec33:link , a.sec33:visited{
+    text-decoration: none;
+    color: white;
+    background-color: #191919;
+}
+
+a.sec33:hover,a.sec33:active{
+    color:black;
+    background-color: white;
+
+}
+
+a.email:link{
+    color: white;
+    text-decoration: underline;
+}
+a.email:hover{
+
+    text-decoration: none;
+}
+
+
+.yellowText{
+    color: #A28B44;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: 4px;
+
+}
+.whiteTitles{
+    font-size:14px;
+    padding-top: 8px;
+    padding-bottom: 20px;
+    letter-spacing: 4px;
+
+}
+.TE{
+    color: #A28B44;
+    margin-right: 5px;
+}
+
+.bottomRow{
+   padding-top: 50px;
+}
+
+

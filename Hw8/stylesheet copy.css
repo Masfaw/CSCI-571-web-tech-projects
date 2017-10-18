@@ -1,0 +1,101 @@
+
+body{
+    margin: auto;
+    text-align: center;
+}
+
+.btn.sharp {
+    border-radius:0;
+}
+.form-control.sharp {
+    border-radius:0;
+}
+
+
+.navbar-default{
+    background-color:red !important;
+    border-color: green;
+}
+.btn-primary.outline {
+    border: 1px solid #3d5997;
+    color: #3d5997;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus {
+    color: #3d5997;
+    border-color: #3d5997;
+    background-color: #9eaccb;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+}
+.nav-tabs >li.active a {
+
+    color: white!important;
+    background-color: #3d5997 !important;
+    border-bottom: 1px solid #3d5997 !important;
+}
+.nav-tabs>li>a{
+    border-radius:0 !important;
+}
+
+.nav-tabs{
+    border-bottom: 2px solid #3d5997 !important;
+}
+
+.myprogressBar{
+    text-align: center;
+    position: relative;
+    width: 80%;
+    margin: auto ;
+    margin-top: 150px;
+
+}
+.mydetailsProgreBar{
+    text-align: center;
+    position: relative;
+    width: 80%;
+    margin: auto ;
+
+}
+
+.queryTable {
+    transition: all linear 0.5s;
+}
+
+.queryTable.ng-hide{
+     transform: translate(1000px,0px);
+}
+
+.detailsTable{
+    transition: all linear 1.2s;
+}
+
+.detailsTable.ng-hide{
+    transform: translate(-1000px,0px);
+}
+
+
+
+.btn-default.outline{
+
+    border: 1px solid  !important;
+
+}
+
+.topNav {
+    background-color: lightgray;
+}
+
+.clearBtn{
+    border: 1px solid  !important;
+    background-color: white !important;
+
+
+}
+
+.clearBtn:hover{
+    color: #3d5997;
+    background-color: #9eaccb;
+}

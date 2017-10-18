@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<catalog >
+    <script/>
+    <title>Airbus Aircraft Families</title>
+
+    <aircraft>
+        <Airbus>A380</Airbus>
+        <Aircraft>A380</Aircraft>
+        <seats>555</seats>
+        <Range>15000km</Range>
+        <Wingspan>79.80m</Wingspan>
+        <Length>73.00m</Length>
+        <Height>24.10m</Height>
+        <Image>
+            Emirates-A380-Aircraft.jpg
+        </Image>
+    </aircraft>
+
+    <aircraft>
+        <Airbus>A330/A340</Airbus>
+        <Aircraft>A340-600</Aircraft>
+        <seats>380</seats>
+        <Range>14600km</Range>
+        <Wingspan>63.45m</Wingspan>
+        <Length>75.30m</Length>
+        <Height>17.30m</Height>
+        <Image>
+            Emirates-A380-Aircraft.jpg
+        </Image>
+    </aircraft>
+</catalog>

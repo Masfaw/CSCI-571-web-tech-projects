@@ -1,0 +1,45 @@
+
+body{
+    margin: auto;
+    text-align: center;
+}
+
+.btn.sharp {
+    border-radius:0;
+}
+.form-control.sharp {
+    border-radius:0;
+}
+
+.btn.outline {
+    background: none;
+
+}
+
+.btn-primary.outline {
+    border: 1px solid #3d5997;
+    color: #3d5997;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus {
+    color: #3d5997;
+    border-color: #3d5997;
+    background-color: #9eaccb;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+}
+.nav-tabs >li.active a {
+
+    color: white!important;
+    background-color: #3d5997 !important;
+    border-bottom: 1px solid #3d5997 !important;
+}
+.nav-tabs>li>a{
+    border-radius:0 !important;
+}
+
+.nav-tabs{
+    border-bottom: 2px solid #3d5997 !important;
+}

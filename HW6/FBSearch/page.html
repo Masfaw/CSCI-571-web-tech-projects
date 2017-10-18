@@ -1,0 +1,103 @@
+<html>
+
+<!--
+    Matheos Asfaw
+    CSCI 571
+    Home Work 6
+    Facebook Search
+
+ -->
+
+    <head>
+        <style>
+
+            #Form{
+                margin: auto;
+                background-color: #dddddd;
+                width : 40%;
+                border: 1px solid darkgray;
+            }
+            #input{
+                padding-left: 10px;
+            }
+            #title  {
+                text-align: center;
+                font-style: italic;
+                font-size: x-large;
+            }
+            .loc{
+                visibility: hidden;
+
+            }
+        </style>
+    <script>
+
+        function changeVisiblity(selectObject) {
+            var selection = selectObject.options[selectObject.selectedIndex].value;
+            console.log();
+            var list = document.getElementsByClassName("loc");
+            if (selection == "Places"){
+
+                for (var i =0; i< list.length;i++ ){
+                    list[i].style.visibility = "visible";
+                    list[i].disabled = false;
+                }
+            }
+            else{
+                for (var i =0; i< list.length;i++ ){
+                    list[i].style.visibility = "hidden";
+                    list[i].disabled = true;
+                }
+            }
+        }
+
+
+       function search(){
+            console.log("Search was called");
+       }
+    </script>
+    </head>
+
+    <body>
+        <div id="Form">
+            <p id="title">Facebook Search</p>
+            <hr style="width: 90%" >
+            <form id="input" method="post" action="search()">
+                <table>
+                    <tr>
+                        <td>KeyWord</td>
+                        <td><input type="text" required name="keyWord"></td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td><select name="type" size="1" onchange="changeVisiblity(this.form.type)"
+                                    onload="changeVisiblity(this.form.type)">
+                            <option selected>Users</option>
+                            <option >Pages</option>
+                            <option >Events</option>
+                            <option >Places</option>
+                            <option >Groups</option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="loc"  >Location</td>
+                        <td class="loc"><input type="text  "   ></td>
+                        <td class="loc" >Distance(meters)</td>
+                        <td class="loc"><input type="text  "   ></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Search"> <input type="reset" value="clear"></td>
+
+                    </tr>
+                </table>
+
+
+
+            </form>
+
+        </div>
+
+    </body>
+</html>
